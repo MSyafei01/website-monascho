@@ -147,23 +147,6 @@ function simulateFormSubmission(form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     
-    // Show loading state
-    submitBtn.textContent = 'Mengirim...';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        // Show success message
-        alert('Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.');
-        
-        // Reset form
-        form.reset();
-        
-        // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
-}
 
 // Testimonials Functions
 function initTestimonials() {
