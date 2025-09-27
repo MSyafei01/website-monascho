@@ -351,7 +351,7 @@ a {
     transition: var(--transition);
 }
 
-/* Toggle Section */
+/* Theme Toggle Styles */
 .theme-toggle {
     background: none;
     border: none;
@@ -361,11 +361,23 @@ a {
     padding: 0.5rem;
     border-radius: 50%;
     transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-toggle:hover {
     background: var(--light-2);
     transform: rotate(180deg);
+}
+
+/* Nav Actions Layout */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* Enhanced Hero Section */
