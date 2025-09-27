@@ -1,3 +1,5 @@
+
+
 // Enhanced Main JavaScript with Modern Features
 class MonaschoApp {
     constructor() {
@@ -12,6 +14,7 @@ class MonaschoApp {
         this.initCounters();
         this.initScrollEffects();
         this.initAnimations();
+        this.initMobileNavigation();
     }
     
     setupLoadingScreen() {
@@ -45,6 +48,8 @@ class MonaschoApp {
                 });
             });
         }
+        
+
         
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
@@ -145,6 +150,44 @@ class MonaschoApp {
         }
     }
     
+// Mobile Navigation Enhancement
+initMobileNavigation() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+}
+
     initAnimations() {
         // Simple scroll animations
         const observer = new IntersectionObserver((entries) => {
@@ -166,6 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Initializing Monascho App...');
     new MonaschoApp();
 });
+
+
 
 // Contact Form Functionality
 function initContactForm() {
