@@ -260,6 +260,7 @@ a {
     padding: 1rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    color: var(--dark);
 }
 
 .nav-logo {
@@ -273,8 +274,8 @@ a {
 
 .nav-logo img {
 
-    height: 40px;
-    margin-right: 10px;
+    height: 70px;
+    margin-right: 80px;
 }
 
 .nav-menu {
