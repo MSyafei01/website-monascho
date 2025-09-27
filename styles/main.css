@@ -298,6 +298,7 @@ a {
     font-weight: 500;
     padding: 0.5rem 0;
     color: var(--dark);
+    color: green;
     transition: var(--transition);
     overflow: hidden;
 }
@@ -315,6 +316,7 @@ a {
 }
 
 .nav-link:hover::before {
+    color: green;
     transform: translateY(0);
 }
 
