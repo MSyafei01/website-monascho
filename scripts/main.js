@@ -1,3 +1,183 @@
+// Enhanced Main JavaScript with Modern Features
+class MonaschoApp {
+    constructor() {
+        this.currentTheme = 'light';
+        this.init();
+    }
+    
+    init() {
+        this.setupLoadingScreen();
+        this.initNavigation();
+        this.initAnimations();
+        this.initTheme();
+        this.initCounters();
+        this.initScrollEffects();
+        this.initParallax();
+    }
+    
+    setupLoadingScreen() {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loading-screen').classList.add('hidden');
+                
+                // Initialize particles after loading
+                setTimeout(() => {
+                    if (typeof ParticleSystem !== 'undefined') {
+                        new ParticleSystem();
+                    }
+                }, 500);
+            }, 2000);
+        });
+    }
+    
+    initNavigation() {
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger?.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+        });
+        
+        // Enhanced scroll effect
+        window.addEventListener('scroll', this.throttle(() => {
+            const navbar = document.querySelector('.navbar');
+            const scrolled = window.scrollY > 100;
+            
+            navbar.classList.toggle('scrolled', scrolled);
+            navbar.style.background = scrolled ? 
+                'rgba(255, 255, 255, 0.98)' : 
+                'rgba(255, 255, 255, 0.95)';
+        }, 10));
+    }
+    
+    initTheme() {
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('monascho-theme') || 'light';
+        
+        this.setTheme(savedTheme);
+        
+        themeToggle?.addEventListener('click', () => {
+            this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+            this.setTheme(this.currentTheme);
+            localStorage.setItem('monascho-theme', this.currentTheme);
+        });
+    }
+    
+    setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const icon = document.querySelector('#themeToggle i');
+        
+        if (icon) {
+            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+    }
+    
+    initCounters() {
+        const counters = document.querySelectorAll('[data-count]');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => observer.observe(counter));
+    }
+    
+    animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-count'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString();
+            }
+        }, 16);
+    }
+    
+    initScrollEffects() {
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 500);
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Section reveal animations
+        this.initScrollAnimations();
+    }
+    
+    initScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    
+                    // Stagger children animations
+                    const children = entry.target.querySelectorAll('.stagger-item');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.classList.add('revealed');
+                        }, index * 150);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    }
+    
+    initParallax() {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('[data-parallax]');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.parallax;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    }
+    
+    throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+}
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', () => {
+    new MonaschoApp();
+});
+
+
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the application
@@ -213,3 +393,4 @@ if (typeof module !== 'undefined' && module.exports) {
         debounce
     };
 }
+
