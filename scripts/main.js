@@ -206,6 +206,39 @@ class MonaschoApp {
         });
     }
     
+// Add this method to your MonaschoApp class
+initGalleryAnimations() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 200); // Stagger animation
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    galleryItems.forEach(item => {
+        item.classList.add('fade-in');
+        observer.observe(item);
+    });
+}
+
+// Jangan lupa panggil method ini di init()
+init() {
+    this.setupLoadingScreen();
+    this.initNavigation();
+    this.initTheme();
+    this.initCounters();
+    this.initScrollEffects();
+    this.initContactForm();
+    this.initProductButtons();
+    this.initGalleryAnimations(); // Tambahkan ini
+}
+
+
     handleProductOrder(productName) {
         const phoneNumber = '6282139831330'; // Replace with actual number
         const message = `Halo, saya ingin memesan ${productName}. Bisa info lebih lanjut?`;
