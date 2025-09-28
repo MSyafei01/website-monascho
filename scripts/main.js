@@ -18,7 +18,10 @@ class MonaschoApp {
     setupLoadingScreen() {
         window.addEventListener('load', () => {
             setTimeout(() => {
-                document.querySelector('.loading-screen').classList.add('hidden');
+                const loadingScreen = document.querySelector('.loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
             }, 2000);
         });
     }
@@ -58,11 +61,13 @@ class MonaschoApp {
         this.currentTheme = savedTheme;
         this.setTheme(this.currentTheme);
         
-        themeToggle?.addEventListener('click', () => {
-            this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-            this.setTheme(this.currentTheme);
-            localStorage.setItem('monascho-theme', this.currentTheme);
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+                this.setTheme(this.currentTheme);
+                localStorage.setItem('monascho-theme', this.currentTheme);
+            });
+        }
     }
     
     setTheme(theme) {
@@ -76,6 +81,8 @@ class MonaschoApp {
     
     initCounters() {
         const counters = document.querySelectorAll('[data-count]');
+        if (counters.length === 0) return;
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -135,22 +142,22 @@ class MonaschoApp {
     
     initContactForm() {
         const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    message: document.getElementById('message').value
-                };
-                
-                if (this.validateForm(formData)) {
-                    this.simulateFormSubmission(contactForm);
-                }
-            });
-        }
+        if (!contactForm) return;
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            if (this.validateForm(formData)) {
+                this.simulateFormSubmission(contactForm);
+            }
+        });
     }
     
     validateForm(formData) {
@@ -188,11 +195,9 @@ class MonaschoApp {
         setTimeout(() => {
             alert('Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.');
             form.reset();
-
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }, 2000);
-
     }
     
     initProductButtons() {
@@ -206,52 +211,16 @@ class MonaschoApp {
         });
     }
     
-// Add this method to your MonaschoApp class
-initGalleryAnimations() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 200); // Stagger animation
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    galleryItems.forEach(item => {
-        item.classList.add('fade-in');
-        observer.observe(item);
-    });
-}
-
-// Jangan lupa panggil method ini di init()
-init() {
-    this.setupLoadingScreen();
-    this.initNavigation();
-    this.initTheme();
-    this.initCounters();
-    this.initScrollEffects();
-    this.initContactForm();
-    this.initProductButtons();
-    this.initGalleryAnimations(); // Tambahkan ini
-}
-
-
     handleProductOrder(productName) {
-        const phoneNumber = '6282139831330'; // Replace with actual number
+        const phoneNumber = '6282139831330';
         const message = `Halo, saya ingin memesan ${productName}. Bisa info lebih lanjut?`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         
-
         window.open(whatsappUrl, '_blank');
     }
 }
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-
     new MonaschoApp();
 });
-// End of main.js 
