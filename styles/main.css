@@ -759,17 +759,6 @@ a {
     margin: 50px auto 0;
 }
 
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: var(--primary);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-}
-
 /* Timeline Styles */
 .timeline-item {
     display: flex;
@@ -804,17 +793,7 @@ a {
     position: relative;
 }
 
-.timeline-content::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--white);
-    border: 4px solid var(--primary);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 .timeline-item:nth-child(odd) .timeline-content::after {
     right: -40px;
