@@ -188,7 +188,7 @@ class MonaschoApp {
         setTimeout(() => {
             alert('Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.');
             form.reset();
-            
+
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }, 2000);
@@ -207,7 +207,7 @@ class MonaschoApp {
     }
     
     handleProductOrder(productName) {
-        const phoneNumber = '6281336399889';
+        const phoneNumber = '6282139831330'; // Replace with actual number
         const message = `Halo, saya ingin memesan ${productName}. Bisa info lebih lanjut?`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         
