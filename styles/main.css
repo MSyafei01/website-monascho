@@ -820,11 +820,11 @@ a {
     opacity: 0.3;
 }
 
-.products-section {
+.product-section {
     padding: 100px 0;
 }
 
-.products-grid {
+.product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -885,7 +885,7 @@ a {
     margin-right: 10px;
 }
 
-.products-cta {
+.product-cta {
     text-align: center;
     margin-top: 50px;
     padding: 30px;
