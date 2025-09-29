@@ -307,96 +307,141 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Produk Kami</h2>
-                <p class="section-subtitle">Solusi Herbal Premium untuk Kesehatan Optimal</p>
-            </div>
-
-                        <!-- Tambahkan di product cards -->
-            <div class="health-benefits">
-                <div class="benefit-item">
-                    <span>Kolesterol</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-percent="85"></div>
+<!-- Products Section -->
+<section id="products" class="products-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Produk Kami</h2>
+            <p class="section-subtitle">Solusi Herbal Premium untuk Kesehatan Optimal</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 dengan efek 3D -->
+            <div class="product-card product-3d">
+                <div class="product-image">
+                    <img src="images/cair.jpg" alt="Monascho Cair">
+                    <div class="product-badges">
+                        <span class="product-badge bestseller">🏆 Terlaris</span>
+                        <span class="product-badge new">🆕 Baru</span>
                     </div>
                 </div>
-                <div class="benefit-item">
-                    <span>Darah Tinggi</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-percent="78"></div>
+                <div class="product-info product-info-3d">
+                    <h3>Varian Cair</h3>
+                    <p class="product-desc">Ekstrak herbal dalam bentuk cair dengan penyerapan optimal dan rasa yang disukai</p>
+                    
+                    <!-- Health Benefits -->
+                    <div class="health-benefits">
+                        <div class="benefit-tag">✓ Kolesterol</div>
+                        <div class="benefit-tag">✓ Darah Tinggi</div>
+                        <div class="benefit-tag">✓ Daya Tahan Tubuh</div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/cair.jpg" alt="Monascho Cair">
+                    
+                    <div class="product-specs">
+                        <span class="spec">Netto: 350ml</span>
+                        <span class="spec">Rasa: Madu</span>
                     </div>
-                    <div class="product-info">
-                        <h3>Varian Cair</h3>
-                        <p class="product-desc">Ekstrak herbal dalam bentuk cair dengan penyerapan optimal</p>
-                        <div class="product-specs">
-                            <span class="spec">Netto: 350ml</span>
-                            
-                        </div>
-                        <div class="product-price">
-                            <span class="price">Rp 35.000</span>
-                        </div>
+                    
+                    <div class="product-price">
+                        <span class="price">Rp 35.000</span>
+                        <span class="old-price">Rp 45.000</span>
+                    </div>
+                    
+                    <div class="product-actions">
                         <button class="btn btn-primary order-btn" data-product="Monascho Cair">
                             <span>Pesan Sekarang</span>
                             <i class="fas fa-shopping-cart"></i>
                         </button>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/kapsul.JPG" alt="Monascho Kapsul">
-                    </div>
-                    <div class="product-info">
-                        <h3>Varian Kapsul</h3>
-                        <p class="product-desc">Kapsul herbal praktis untuk konsumsi sehari-hari</p>
-                        <div class="product-specs">
-                            <span class="spec">Isi: 60 kapsul</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="price">Rp 750.000</span>
-                        </div>
-                        <button class="btn btn-primary order-btn" data-product="Monascho Kapsul">
-                            <span>Pesan Sekarang</span>
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/ekstrak.jpeg" alt="Monascho Ekstrak">
-                    </div>
-                    <div class="product-info">
-                        <h3>Varian Ekstrak</h3>
-                        <p class="product-desc">Ekstrak murni dengan konsentrasi tinggi</p>
-                        <div class="product-specs">
-                            <span class="spec">Netto: 250ml</span>
-                            <span class="spec">BPOM: TR226016351</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="price">Rp 250.000</span>
-                        </div>
-                        <button class="btn btn-primary order-btn" data-product="Monascho Ekstrak">
-                            <span>Pesan Sekarang</span>
-                            <i class="fas fa-shopping-cart"></i>
+                        <button class="btn btn-outline detail-btn">
+                            <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
                 </div>
             </div>
+
+            <!-- Product 2 dengan efek 3D -->
+            <div class="product-card product-3d">
+                <div class="product-image">
+                    <img src="images/kapsul.JPG" alt="Monascho Kapsul">
+                    <div class="product-badges">
+                        <span class="product-badge practical">⚡ Praktis</span>
+                    </div>
+                </div>
+                <div class="product-info product-info-3d">
+                    <h3>Varian Kapsul</h3>
+                    <p class="product-desc">Kapsul herbal praktis untuk konsumsi sehari-hari, mudah dibawa kemana saja</p>
+                    
+                    <!-- Health Benefits -->
+                    <div class="health-benefits">
+                        <div class="benefit-tag">✓ Kolesterol</div>
+                        <div class="benefit-tag">✓ Gula Darah</div>
+                        <div class="benefit-tag">✓ Pencernaan</div>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <span class="spec">Isi: 60 kapsul</span>
+                        <span class="spec">BPOM: TR226016351</span>
+                    </div>
+                    
+                    <div class="product-price">
+                        <span class="price">Rp 75.000</span>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn btn-primary order-btn" data-product="Monascho Kapsul">
+                            <span>Pesan Sekarang</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                        <button class="btn btn-outline detail-btn">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 dengan efek 3D -->
+            <div class="product-card product-3d">
+                <div class="product-image">
+                    <img src="images/ekstrak.jpeg" alt="Monascho Ekstrak">
+                    <div class="product-badges">
+                        <span class="product-badge premium">💎 Premium</span>
+                        <span class="product-badge concentrated">🔥 Pekat</span>
+                    </div>
+                </div>
+                <div class="product-info product-info-3d">
+                    <h3>Varian Ekstrak</h3>
+                    <p class="product-desc">Ekstrak murni dengan konsentrasi tinggi untuk hasil yang maksimal dan cepat</p>
+                    
+                    <!-- Health Benefits -->
+                    <div class="health-benefits">
+                        <div class="benefit-tag">✓ Hepatitis</div>
+                        <div class="benefit-tag">✓ Tipes</div>
+                        <div class="benefit-tag">✓ Detoksifikasi</div>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <span class="spec">Netto: 250ml</span>
+                        <span class="spec">BPOM: TR226016351</span>
+                    </div>
+                    
+                    <div class="product-price">
+                        <span class="price">Rp 250.000</span>
+                        <span class="old-price">Rp 300.000</span>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn btn-primary order-btn" data-product="Monascho Ekstrak">
+                            <span>Pesan Sekarang</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                        <button class="btn btn-outline detail-btn">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
             <!-- Price List 
             <div class="price-list">

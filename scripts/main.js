@@ -5,15 +5,16 @@ class MonaschoApp {
         this.init();
     }
     
-    init() {
-        this.setupLoadingScreen();
-        this.initNavigation();
-        this.initTheme();
-        this.initCounters();
-        this.initScrollEffects();
-        this.initContactForm();
-        this.initProductButtons();
-    }
+init() {
+    this.setupLoadingScreen();
+    this.initNavigation();
+    this.initTheme();
+    this.initCounters();
+    this.initScrollEffects();
+    this.initContactForm();
+    this.initProductButtons();
+    this.initProductInteractions();
+}
     
     setupLoadingScreen() {
         window.addEventListener('load', () => {
@@ -54,6 +55,40 @@ class MonaschoApp {
         });
     }
     
+
+    // Enhanced Product Interactions
+initProductInteractions() {
+    // Detail button functionality
+    document.querySelectorAll('.detail-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const productCard = button.closest('.product-card');
+            const productName = productCard.querySelector('h3').textContent;
+            this.showProductDetail(productName);
+        });
+    });
+    
+    // Add to cart animation
+    document.querySelectorAll('.order-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Add animation feedback
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Ditambahkan!';
+            button.style.background = 'var(--primary-dark)';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 2000);
+        });
+    });
+}
+
+showProductDetail(productName) {
+    // Simple detail modal (bisa dikembangkan lebih lanjut)
+    alert(`Detail produk: ${productName}\n\nFitur ini akan menampilkan informasi lengkap tentang produk ${productName}.`);
+}
+
     initTheme() {
         const themeToggle = document.getElementById('themeToggle');
         const savedTheme = localStorage.getItem('monascho-theme') || 'light';
