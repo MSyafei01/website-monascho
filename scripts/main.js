@@ -14,6 +14,8 @@ init() {
     this.initContactForm();
     this.initProductButtons();
     this.initProductInteractions();
+    this.initWhatsAppRedirect(); // Untuk social media WhatsApp
+    this.initImageFallbacks();   // Fallback jika gambar error
 }
     
     setupLoadingScreen() {
