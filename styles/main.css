@@ -646,7 +646,7 @@ a {
 .main-product {
     width: 300px;
     height: 400px;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: rotate(5deg);
     z-index: 3;
@@ -654,9 +654,9 @@ a {
 
 .secondary-product {
     width: 300px;
-    height: 350px;
-    top: 30%;
-    right: 10%;
+    height: 400px;
+    top: 0%;
+    right: 50%;
     transform: rotate(5deg);
     z-index: 2;
 }
