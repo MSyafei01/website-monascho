@@ -54,6 +54,22 @@ class ScrollAnimator {
     }
 }
 
+// scripts/animations.js
+class MonaschoAnimations {
+    constructor() {
+        this.init();
+    }
+    
+    init() {
+        console.log('Animations module loaded');
+        // Bisa ditambahkan scroll animations nanti
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.monaschoAnimations = new MonaschoAnimations();
+});
+
 // Parallax Effect
 class ParallaxScroller {
     constructor() {

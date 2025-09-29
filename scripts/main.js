@@ -8,7 +8,7 @@ class MonaschoApp {
 init() {
     this.setupLoadingScreen();
     this.initNavigation();
-    this.initTheme();
+    this.initTheme();   
     this.initCounters();
     this.initScrollEffects();
     this.initContactForm();
@@ -57,6 +57,58 @@ init() {
         });
     }
     
+    // Tambahkan method baru
+initWhatsAppRedirect() {
+    // Pastikan link WhatsApp di social media berfungsi
+    document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(link.href, '_blank');
+        });
+    });
+}
+
+initImageFallbacks() {
+    // Fallback jika gambar gagal load
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
+            this.alt = 'Gambar tidak tersedia';
+        });
+    });
+}
+
+// Perbaiki minor di contact form - redirect ke WhatsApp
+simulateFormSubmission(form) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+    submitBtn.disabled = true;
+    
+    // Ambil data form untuk WhatsApp
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+    };
+    
+    setTimeout(() => {
+        // Redirect ke WhatsApp dengan data form
+        const phoneNumber = '6282142144412';
+        const whatsappMessage = `Pesan dari Website Monascho:%0A%0ANama: ${formData.name}%0AEmail: ${formData.email}%0ATelepon: ${formData.phone}%0APesan: ${formData.message}`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+        
+        window.open(whatsappUrl, '_blank');
+        
+        form.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        alert('Pesan telah dikirim! Anda akan diarahkan ke WhatsApp.');
+    }, 1500);
+}
 
     // Enhanced Product Interactions
 initProductInteractions() {

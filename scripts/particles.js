@@ -1,4 +1,8 @@
 // Advanced Particle System for Background Animation
+
+
+
+
 class ParticleSystem {
     constructor() {
         this.canvas = document.getElementById('animated-bg');
