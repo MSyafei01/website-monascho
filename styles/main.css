@@ -692,12 +692,6 @@ a {
     position: relative;
 }
 
-.timeline-content h3 {
-    color: var(--primary);
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
 .timeline-item {
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -720,6 +714,13 @@ a {
     padding: 2rem;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-xl);
+}
+
+
+.timeline-content h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
 }
 
 /* Products Section */
@@ -1274,23 +1275,6 @@ a {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-.certification-badge {
-    position: absolute;
-    animation: float-cert 3s ease-in-out infinite;
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    box-shadow: var(--shadow-md);
-}
-
-@keyframes float-cert {
-    0%, 100% { transform: translateY(0px) rotate(-5deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
 }
 
 /* Responsive Design */
