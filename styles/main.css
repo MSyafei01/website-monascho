@@ -583,7 +583,7 @@ a {
 
 
 .product-image {
-    height: 500px;
+    height: 800px;
     overflow: hidden;
 }
 
@@ -683,7 +683,7 @@ a {
 }
 
 .main-product:hover .product-glow {
-    opacity: 0.3;
+    opacity: 15;
 }
 
 /* Product Badges */
