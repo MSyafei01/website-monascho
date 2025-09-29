@@ -54,6 +54,20 @@
     transform: translateY(0);
 }
 
+
+.product-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.product-3d:hover {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+}
+
+.product-info-3d {
+    transform: translateZ(30px);
+}
+
 /* Specific Element Animations */
 .hero-title {
     animation: fadeInDown 1s ease forwards;
